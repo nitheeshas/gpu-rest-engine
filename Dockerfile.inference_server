@@ -1,9 +1,12 @@
-FROM nvidia/cuda:8.0-cudnn5-devel-ubuntu16.04
+FROM nvidia/cuda:7.5-cudnn5-devel
 
 MAINTAINER Felix Abecassis "fabecassis@nvidia.com"
 
-ENV CUDA_ARCH_BIN "30 35 50 52 60"
-ENV CUDA_ARCH_PTX "60"
+# Edit the following according to your GPU.
+# Find the corresponding compute capability from the following link:
+# https://developer.nvidia.com/cuda-gpus
+ENV CUDA_ARCH_BIN "52"
+ENV CUDA_ARCH_PTX "52"
 
 # Install dependencies.
 RUN apt-get update && apt-get install -y --no-install-recommends --force-yes \
